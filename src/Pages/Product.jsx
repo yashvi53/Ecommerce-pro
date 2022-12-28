@@ -5,6 +5,7 @@ import "../styles/Product.css";
 import NewsLetter from "../Components/NewsLetter";
 import {GrAdd} from "react-icons/gr"
 import {IoMdRemove} from "react-icons/io"
+import { Link } from "react-router-dom";
 
 const Product = () => {
   return (
@@ -59,7 +60,9 @@ const Product = () => {
               </span>
            
             </div>
+            <Link to={"/cart"}>
             <button className="cart">Add To Cart</button>
+            </Link>
           </div>
         </div>
       </div>
