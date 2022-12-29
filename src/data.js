@@ -53,22 +53,22 @@ export const NewArrivals=[
     {
         id:1,
         img:"https://freepngimg.com/thumb/dress/33155-3-floral-dress-thumb.png",
-        category:"tshirts"
+        category:"women"
     },
     {
         id:2,
         img:"https://p.kindpng.com/picc/s/37-375157_dress-png-images-free-download-girl-in-dress.png",
-        category:"tshirts"
+        category:"women"
     },
     {
         id:3,
         img:"https://img.lovepik.com/free-png/20220117/lovepik-fashion-women-png-image_401431817_wh300.png",
-        category:"tshirts"
+        category:"women"
     },
     {
         id:4,
         img:"https://img.lovepik.com/element/40039/1997.png_300.png",
-        category:"tshirts"
+        category:"women"
     },
     
         {
@@ -90,7 +90,24 @@ export const NewArrivals=[
     {
         id:8,
         img:"https://m.media-amazon.com/images/I/81itPRPp66L._UL1500_.jpg",
-        category:"tshirts"
+        category:"women"
     },
+    {
+        id:9,
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbHD_PdQQ_yBk83Ez00iAh2-T4MjN5SRAXbg&usqp=CAU",
+        category:"bottom"
+    },
+    {
+        id:10,
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyN_ebVW6dCfEa_JGN1dqiXKNjNaIENIS4zA&usqp=CAU",
+        category:"bottom"
+    },
+    {
+        id:11,
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm0CtLmecf5NVHcx_3A4Jc8YD_C8QdTpj7aA&usqp=CAU",
+        category:"bottom"
+    }
+    
+
    
 ]

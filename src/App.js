@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./Pages/Home";
-import Product from "./Pages/Product";
+import ProductDetail from "./Pages/ProductDetail";
 import Cart from "./Pages/Cart";
 import {
   Routes,
@@ -14,7 +14,7 @@ const App = () => {
     <Routes>
       <Route exact path="/" element={<Home/>}/>
       <Route exact path="/productlist/:category" element={<ProductList/>}/>
-      <Route exact path="/product" element={<Product/>}/>
+      <Route exact path="/products/:id" element={<ProductDetail/>}/>
       <Route exact path="/cart" element={<Cart/>}/>
     </Routes>
     </BrowserRouter>

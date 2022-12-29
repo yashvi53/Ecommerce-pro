@@ -3,6 +3,7 @@ import "./Products.css"
 import {BiSearchAlt2} from "react-icons/bi"
 import {BsCartFill} from "react-icons/bs"
 import {AiFillHeart} from "react-icons/ai"
+import { Link } from 'react-router-dom'
 
 const Product = ({item}) => {
   return (
@@ -16,7 +17,9 @@ const Product = ({item}) => {
             <BsCartFill/>
            </span>
            <span className="search-icon">
+           <Link to={`/products/${item.id}`}>
             <BiSearchAlt2/>
+            </Link>
            </span>
            <span className="wishlist-icon">
             <AiFillHeart/>

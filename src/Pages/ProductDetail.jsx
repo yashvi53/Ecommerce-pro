@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import "../styles/Product.css";
@@ -6,15 +6,31 @@ import NewsLetter from "../Components/NewsLetter";
 import {GrAdd} from "react-icons/gr"
 import {IoMdRemove} from "react-icons/io"
 import { Link } from "react-router-dom";
+import { NewArrivals } from "../data";
+import Product from "../Components/Product";
 
-const Product = () => {
+
+const ProductDetail = ({item}) => {
+  const [data, setData] = useState(NewArrivals);
+  const particularproduct=()=>{
+    const res=NewArrivals.map((item)=>{
+      return <Product item={item}/>
+    })
+    setData(res)
+  }
+  useEffect(() => {
+   particularproduct()
+  }, [])
+  console.log("work",particularproduct());
+ 
   return (
+  
     <div className="productmain-container">
       <Navbar />
       <div className="product-wrapper">
         <div className="img-container">
           <img
-            src="https://m.media-amazon.com/images/I/81itPRPp66L._UL1500_.jpg"
+            src={data.img}
             alt=""
           />
         </div>
@@ -41,11 +57,11 @@ const Product = () => {
                 <option disabled selected>
                   Size
                 </option>
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
+                <option>34</option>
+                <option>32</option>
+                <option>36</option>
+                <option>44</option>
+                <option>32</option>
               </select>
             </div>
           </div>
@@ -66,10 +82,12 @@ const Product = () => {
           </div>
         </div>
       </div>
+     
       <NewsLetter />
       <Footer />
     </div>
+    
   );
 };
 
-export default Product;
+export default ProductDetail;

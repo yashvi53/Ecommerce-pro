@@ -7,7 +7,7 @@ import Footer from '../Components/Footer'
 import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-const ProductList = ({item}) => {
+const ProductList = () => {
 
     const location=useLocation();
     const category=location.pathname.split("/")[2];
@@ -24,7 +24,7 @@ const ProductList = ({item}) => {
   return (
    <div className="productlist-container">
     <Navbar/>
-    <h1>Ethnic Wear</h1>
+    <h1>{category}</h1>
     <div className="filter-container">
      <div className="filter-1">
       <span className='filtertext'>Products Filter:</span>
@@ -39,11 +39,11 @@ const ProductList = ({item}) => {
       </select>
       <select name="size" onChange={handlefilter} >
         <option disabled selected>Size</option>
-        <option>XS</option>
-        <option>S</option>
-        <option>M</option>
-        <option>L</option>
-        <option>XL</option>
+        <option>34</option>
+        <option>36</option>
+        <option>50</option>
+        <option>44</option>
+        <option>32</option>
       </select>
      </div>
      <div className="filter-2">
@@ -57,7 +57,9 @@ const ProductList = ({item}) => {
 
     </div>
    
-      <Products category={category} filter={filter} sort={Sort}/>
+  
+      <Products category={category} filter={filter} sort={Sort} />
+     
      
       <NewsLetter/>
       <Footer/>    
