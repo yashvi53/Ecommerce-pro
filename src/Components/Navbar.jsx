@@ -2,9 +2,13 @@ import React from 'react'
 import "../Components/Navbar.css"
 import {BiSearchAlt2} from "react-icons/bi"
 import {BsCartFill} from "react-icons/bs"
-import logo from "../images/logo.png"
+import logo from "../images/logo.png";
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+const quantity=useSelector(state=>state.cart.quantity)
+console.log(quantity);
+
   return (
    <div className='nav-container'>
        <div className="nav-wrapper">
@@ -24,7 +28,10 @@ const Navbar = () => {
           <div className="menu-items">
             <span>Register</span>
             <span>Sign In</span>
-          <span>< BsCartFill/></span> 
+            <div className="cart-products">
+            <span className='count'>{quantity}</span>
+          <span ><BsCartFill/></span> 
+          </div>
           </div>
         </div>
        </div>

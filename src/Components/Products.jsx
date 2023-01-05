@@ -8,7 +8,19 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 const Products = ({ category, filter, sort, item }) => {
   const [result, setResult] = useState(NewArrivals);
+  // const [data, setData] = useState({});
 
+  // const getProduct = async () => {
+  //   try {
+  //     const res = await axios.get(
+  //       "http://localhost:4000/api/product/" 
+  //     );
+  //     setData(res.data[0]);
+  //     console.log("response", res.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   const filterResult = (item) => {
     const res = NewArrivals.filter((curdate) => {
       return curdate.category == category;
@@ -17,6 +29,7 @@ const Products = ({ category, filter, sort, item }) => {
   };
   useEffect(() => {
     filterResult();
+   
   }, []);
 
   return (

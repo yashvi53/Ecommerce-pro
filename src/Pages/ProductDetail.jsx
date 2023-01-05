@@ -9,11 +9,15 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 import axios from "axios";
+import { addProduct } from "../redux/cartredux";
+import { useDispatch } from "react-redux";
 
 const ProductDetail = ({ item }) => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const dispatch=useDispatch();
 
   const getProduct = async () => {
     try {
@@ -26,6 +30,20 @@ const ProductDetail = ({ item }) => {
       console.log(err);
     }
   };
+
+  const handleQuantity=(type)=>{
+   if(type=="dec"){
+   quantity>1 && setQuantity(quantity-1)
+   }
+   else{
+    setQuantity(quantity+1)
+   }
+
+  }
+  const handleClick=()=>{
+  dispatch(addProduct({...product,quantity}))
+  
+  }
 
   useEffect(() => {
     getProduct();
@@ -60,16 +78,19 @@ const ProductDetail = ({ item }) => {
           </div>
           <div className="add-container">
             <div className="amount-container">
-              <span className="add">
+              <span className="add" onClick={()=>handleQuantity("inc")}>
                 <GrAdd />
               </span>
-              <input type="text" className="amount" />
-              <span className="remove">
-                <IoMdRemove />
+             <span>
+              {quantity}
+              </span>
+             
+              <span className="remove" onClick={()=>handleQuantity("dec")}>
+                <IoMdRemove  />
               </span>
             </div>
             <Link to={"/cart"}>
-              <button className="cart">Add To Cart</button>
+              <button className="cart" onClick={handleClick}>Add To Cart</button>
             </Link>
           </div>
         </div>

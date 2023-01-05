@@ -20,7 +20,9 @@ const ProductList = () => {
             ...filter,
             [e.target.value]:value
         });
+        console.log(value);
     }
+  
   return (
    <div className="productlist-container">
     <Navbar/>

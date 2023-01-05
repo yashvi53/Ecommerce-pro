@@ -1,13 +1,28 @@
-import React from "react";
+import React,{useState} from "react";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import "../styles/Cart.css";
 import { GrAdd } from "react-icons/gr";
 import { IoMdRemove } from "react-icons/io";
 
+import { useSelector } from "react-redux";
 const Cart = () => {
+  const cart=useSelector(state=>state.cart);
+  const [quantity, setQuantity] = useState(cart.quantity)
+ 
+
+  const handleQuantity=(type)=>{
+    if(type=="dec"){
+      setQuantity(quantity-1)
+    }
+    else{
+      setQuantity(quantity+1)
+    }
+  }
+
   return (
     <div className="cart-container">
+
       <Navbar />
       <div className="Wrapper">
         <h1 className="cart-title">Your Basket</h1>
@@ -23,77 +38,51 @@ const Cart = () => {
         </div>
         <div className="bottom">
           <div className="cart-info">
+            {
+              cart.products.map(product=>(
             <div className="cart-product">
               <div className="product-details">
                 <img
-                  src="http://www.pngimagesfree.com/People/Lengha/Thumb/lengha-model.png"
+                  src={product.image}
                   alt=""
                 />
                 <div className="details">
                   <span className="product-name">
-                    <b>Product:</b> Ethnic Lengha
+                    <b>Product:</b> {product.title}
                   </span>
                   <span className="productId">
-                    <b>ID:</b> 8498437
+                    <b>ID:</b>{product.id}
                   </span>
-                  <div className="product-color"></div>
+                  <div className="product-color">
+                    {product.color}
+                  </div>
                   <span className="product-size">
-                    <b>Size:</b> 38
+                    <b>Size:</b> {product.size}
                   </span>
                 </div>
               </div>
               <div className="price-details">
                 <div className="product-amountcontainer">
-                  <span className="add">
+                  <span className="add" onClick={()=>{handleQuantity("inc")}}>
                     <GrAdd />
                   </span>
-                  <input type="text" className="amount" />
-                  <span className="remove">
+                  <span>{product.quantity}</span>
+                  <span className="remove" onClick={()=>{handleQuantity("dec")}}>
                     <IoMdRemove />
                   </span>
                 </div>
-                <div className="total-amount">3000</div>
+                <div className="total-amount">{product.price*product.quantity}</div>
               </div>
             </div>
+            )) }
             <hr className="line"/>
-            <div className="cart-product">
-              <div className="product-details">
-                <img
-                  src="http://www.pngimagesfree.com/People/Lengha/Thumb/lengha-model.png"
-                  alt=""
-                />
-                <div className="details">
-                  <span className="product-name">
-                    <b>Product:</b> Ethnic Lengha
-                  </span>
-                  <span className="productId">
-                    <b>ID:</b> 8498437
-                  </span>
-                  <div className="product-color"></div>
-                  <span className="product-size">
-                    <b>Size:</b> 38
-                  </span>
-                </div>
-              </div>
-              <div className="price-details">
-                <div className="product-amountcontainer">
-                  <span className="add">
-                    <GrAdd />
-                  </span>
-                  <input type="text" className="amount" />
-                  <span className="remove">
-                    <IoMdRemove />
-                  </span>
-                </div>
-                <div className="total-amount">3000</div>
-              </div>
-            </div>
+          
           </div>
           <div className="summary">
            <h1 className="summary-title">Order Details</h1>
             <div className="summaryitem">
                 <span className="summary-text">SubTotal</span>
-                <span className="summary-price">890</span>
+                <span className="summary-price">{cart.total}</span>
             </div>
             <div className="summaryitem">
                 <span className="summary-text">Shipping Price</span>
@@ -105,7 +94,7 @@ const Cart = () => {
             </div>
             <div className="summaryitem">
                 <span className="summary-text">FinalTotal</span>
-                <span className="summary-price">950</span>
+                <span className="summary-price">{cart.total}</span>
             </div>
             <button>CHECKOUT NOW</button>
           </div>
