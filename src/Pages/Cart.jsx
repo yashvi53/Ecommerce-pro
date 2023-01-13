@@ -54,7 +54,7 @@ const Cart = () => {
                     <b>ID:</b>{product.id}
                   </span>
                   <div className="product-color">
-                    {product.color}
+                    {/* {product.color} */}
                   </div>
                   <span className="product-size">
                     <b>Size:</b> {product.size}
