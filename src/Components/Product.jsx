@@ -8,9 +8,7 @@ import { Link } from 'react-router-dom'
 const Product = ({item}) => {
   return (
     <div className="productitem-container">
-        <div className="circle">
-
-        </div>
+        
         <img className='product-img' src={item.img} alt="" />
         <div className="product-info">
            <span className="cart-icon">

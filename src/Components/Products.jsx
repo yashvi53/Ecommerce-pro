@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const Products = ({ category, filter, sort, item }) => {
+  console.log(filter,"filter")
   const [result, setResult] = useState(NewArrivals);
   // const [data, setData] = useState({});
 
@@ -23,17 +24,19 @@ const Products = ({ category, filter, sort, item }) => {
   // };
   const filterResult = (item) => {
     const res = NewArrivals.filter((curdate) => {
-      return curdate.category == category;
+      return curdate.category === category;
     });
-    setResult(res);
+      setResult(res);
+    
+    
   };
   useEffect(() => {
-    filterResult();
+    filterResult(filter);
    
   }, []);
 
   return (
-    <div className="product-container">
+    <div className="product-container"  >
       {result.map((item) => (
         <Link to={`/products/${item.id}`}>
           <Product item={item} key={item.id} />

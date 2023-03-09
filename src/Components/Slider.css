@@ -68,7 +68,7 @@ button.rec-dot{
   color: black;
   font-weight: 600;
 }
-.info-container {
+.slider-info-container {
   flex: 1;
   padding: 50px;
 }

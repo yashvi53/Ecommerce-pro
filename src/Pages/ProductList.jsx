@@ -5,41 +5,41 @@ import Products from '../Components/Products'
 import NewsLetter from '../Components/NewsLetter'
 import Footer from '../Components/Footer'
 import { useLocation } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 
 const ProductList = () => {
 
     const location=useLocation();
     const category=location.pathname.split("/")[2];
 
-    const [filter, setFilter] = useState({})
+    const [filter, setFilter] = useState({ color: '', size: '' })
     const [Sort,setSort]=useState("newest")
-    const handlefilter=(e)=>{
-        const value=e.target.value;
-        setFilter({
-            ...filter,
-            [e.target.value]:value
-        });
-        console.log(value);
+    const handleFilter=(e)=>{
+      const { name, value } = e.target;
+      setFilter({
+        ...filter,
+        [name]: value,
+      });
     }
   
   return (
-   <div className="productlist-container">
+   <div className="productlist-container"  >
     <Navbar/>
+    
+    <div className="productlist"style={{background:"#e3eaea"}}>
     <h1>{category}</h1>
     <div className="filter-container">
      <div className="filter-1">
       <span className='filtertext'>Products Filter:</span>
-      <select name="color" onChange={handlefilter} >
+      <select name="color" onChange={handleFilter} value={filter.color} >
         <option disabled >Color</option>
-        <option>Yellow</option>
-        <option>White</option>
-        <option>Red</option>
-        <option>Blue</option>
-        <option>Green</option>
-        <option>Parot</option>
+        <option>yellow</option>
+        <option>white</option>
+        <option>red</option>
+        <option>blue</option>
+        <option>green</option>
+        <option>black</option>
       </select>
-      <select name="size" onChange={handlefilter} >
+      <select name="size" onChange={handleFilter} value={filter.size} >
         <option disabled selected>Size</option>
         <option>34</option>
         <option>36</option>
@@ -59,10 +59,10 @@ const ProductList = () => {
 
     </div>
    
-  
+        
       <Products category={category} filter={filter} sort={Sort} />
      
-     
+      </div>
       <NewsLetter/>
       <Footer/>    
 

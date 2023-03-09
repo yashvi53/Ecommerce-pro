@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 
 import Carousel from 'react-elastic-carousel';
-import styled from 'styled-components'
 import "./Slider.css";
 import { sliderItems } from "../data";
 const Slider = () => {
@@ -20,7 +19,7 @@ const Slider = () => {
               alt=""
             />
           </div>
-          <div className="info-container">
+          <div className="slider-info-container">
             <h1 className="title">{item.title}</h1>
             <p className="description">
             {item.description}

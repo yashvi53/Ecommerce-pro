@@ -9,8 +9,11 @@
     margin: 20px;
 }
 .filter-1,.filter-2, select{
+    font-size: 17px;
+    font-weight: 400;
     padding: 10px;
-    margin-right: 20px;
+    margin-right: 100px;
+    margin-top: 20px;
 }
 .filtertext{
     font-size: 20px;

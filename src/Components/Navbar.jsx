@@ -3,6 +3,7 @@ import "../Components/Navbar.css"
 import {BiSearchAlt2} from "react-icons/bi"
 import {BsCartFill} from "react-icons/bs"
 import logo from "../images/logo.png";
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Navbar = () => {
@@ -30,7 +31,9 @@ console.log(quantity);
             <span>Sign In</span>
             <div className="cart-products">
             <span className='count'>{quantity}</span>
+            <Link to={"/cart"}>
           <span ><BsCartFill/></span> 
+          </Link>
           </div>
           </div>
         </div>

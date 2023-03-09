@@ -5,11 +5,10 @@ import "../styles/Product.css";
 import NewsLetter from "../Components/NewsLetter";
 import { GrAdd } from "react-icons/gr";
 import { IoMdRemove } from "react-icons/io";
-import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 import axios from "axios";
-import { addProduct } from "../redux/cartredux";
+import { addProduct} from "../redux/cartredux";
 import { useDispatch } from "react-redux";
 
 const ProductDetail = ({ item }) => {
@@ -32,7 +31,7 @@ const ProductDetail = ({ item }) => {
   };
 
   const handleQuantity=(type)=>{
-   if(type=="dec"){
+   if(type==="dec"){
    quantity>1 && setQuantity(quantity-1)
    }
    else{
@@ -52,12 +51,12 @@ const ProductDetail = ({ item }) => {
   return (
     <div className="productmain-container">
       <Navbar />
-      <div className="product-wrapper">
+      <div className="product-wrapper" style={{background:"#e3eaea"}}>
         <div className="img-container">
           <img src={product.image} alt="" />
         </div>
         <div className="info-container">
-          <h1 className="title">{product.title}</h1>
+          <h1 className="productdetail-title">{product.title}</h1>
           <p className="desc">{product.description}</p>
           <p className="price">{product.price}</p>
           <div className="filter-container">
@@ -89,9 +88,9 @@ const ProductDetail = ({ item }) => {
                 <IoMdRemove  />
               </span>
             </div>
-            <Link to={"/cart"}>
+          
               <button className="cart" onClick={handleClick}>Add To Cart</button>
-            </Link>
+          
           </div>
         </div>
       </div>
